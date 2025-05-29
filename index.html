@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Control de Ventas e Inventario</title>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0d6efd">
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    h1, h2 { color: #0d6efd; }
+    input, select, button { margin: 5px 0; padding: 5px; }
+    button { cursor: pointer; }
+    ul { list-style: none; padding: 0; }
+    li { margin: 5px 0; }
+    table { border-collapse: collapse; width: 100%; margin-top: 10px; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+  </style>
+</head>
+<body>
+
+  <h1>Control de Ventas e Inventario</h1>
+
+  <section>
+    <h2>Registro de Productos</h2>
+    <form id="product-form">
+      <input type="text" id="product-name" placeholder="Nombre del producto" required>
+      <input type="number" id="product-price" placeholder="Precio" min="0" step="0.01" required>
+      <input type="number" id="product-stock" placeholder="Stock" min="0" step="1" required>
+      <button type="submit">Agregar Producto</button>
+    </form>
+    <ul id="product-list"></ul>
+  </section>
+
+  <section>
+    <h2>Gestión de Vendedores</h2>
+    <form id="vendor-form">
+      <input type="text" id="vendor-name" placeholder="Nombre del vendedor" required>
+      <input type="number" id="vendor-rate" placeholder="% Comisión" min="0" max="100" required>
+      <button type="submit">Agregar Vendedor</button>
+    </form>
+    <ul id="vendor-list"></ul>
+  </section>
+
+  <section>
+    <h2>Registrar Venta</h2>
+    <form id="sale-form">
+      <select id="seller-select" required></select>
+      <select id="product-select" required></select>
+      <input type="number" id="sale-quantity" placeholder="Cantidad" min="1" step="1" required>
+      <button type="submit">Registrar Venta</button>
+    </form>
+    <ul id="sales-list"></ul>
+  </section>
+
+  <section>
+    <h2>Resumen por Vendedor</h2>
+    <table id="commission-summary">
+      <thead><tr><th>Vendedor</th><th>Total Ventas</th><th>Comisión %</th><th>Comisión Total</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </section>
+
+<script src="app.js"></script>
+</body>
+</html>
